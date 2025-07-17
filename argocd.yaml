@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/kiran0113/argocd.git
+    targetRevision: HEAD
+    path: automate    # This is the folder where your YAML files are
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    automated:        # Optional: enable auto-deploy
+      prune: true
+      selfHeal: true
+
