@@ -70,11 +70,7 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls:
-<<<<<<< HEAD
-   - secretName: practice-tls
-=======
-   - secretName: chart-example-tls
->>>>>>> 13c24fe (edited)
+   - secretName: chart-tls
      hosts:
        - kiran.kubeace.com
 
