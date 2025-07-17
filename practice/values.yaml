@@ -70,7 +70,11 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls:
+<<<<<<< HEAD
    - secretName: practice-tls
+=======
+   - secretName: kiran-example-tls
+>>>>>>> 13c24fe (edited)
      hosts:
        - kiran.kubeace.com
 
