@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-replica
+spec:
+  selector:
+    matchLabels:
+      app: redis
+      role: replica
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: replica
+    spec:
+      containers:
+      - name: replica
+        image: {{ .Values.redisReplica.image }}
+        args:
+          - --replicaof
+          - redis-master
+          - "{{ .Values.redisMaster.port }}"
+        ports:
+        - containerPort: {{ .Values.redisReplica.port }}
+

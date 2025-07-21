@@ -1,0 +1,21 @@
+replicaCount: 3
+
+frontend:
+  image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
+  imagePullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  service:
+    type: NodePort
+    port: 80
+
+redisMaster:
+  image: registry.k8s.io/redis:e2e
+  port: 6379
+
+redisReplica:
+  image: registry.k8s.io/redis:e2e
+  port: 6379
+
