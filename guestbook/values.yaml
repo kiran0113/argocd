@@ -12,10 +12,10 @@ frontend:
     port: 80
 
 redisMaster:
-  image: registry.k8s.io/redis:v3
+  image: registry.k8s.io/redis:e2e
   port: 6379
 
 redisReplica:
-  image: registry.k8s.io/redis:v3
+  image: registry.k8s.io/redis:e2e
   port: 6379
 
