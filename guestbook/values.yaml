@@ -1,12 +1,8 @@
-replicaCount: 3
+replicaCount: 1
 
 frontend:
   image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
   imagePullPolicy: IfNotPresent
-  resources:
-    requests:
-      cpu: 100m
-      memory: 100Mi
   service:
     type: NodePort
     port: 80
