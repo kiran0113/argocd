@@ -14,12 +14,14 @@ spec:
         role: replica
     spec:
       containers:
-      - name: replica
-        image: {{ .Values.redisReplica.image }}
-        args:
-          - --replicaof
-          - redis-master
-          - "{{ .Values.redisMaster.port }}"
-        ports:
-        - containerPort: {{ .Values.redisReplica.port }}
+        - name: replica
+          image: {{ .Values.redisReplica.image }}
+          command: ["redis-server"]
+          args:
+            - --replicaof
+            - redis-master
+            - "{{ .Values.redisMaster.port }}"
+          ports:
+            - containerPort: {{ .Values.redisReplica.port }}
+
 
