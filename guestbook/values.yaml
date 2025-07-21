@@ -16,6 +16,6 @@ redisMaster:
   port: 6379
 
 redisReplica:
-  image: registry.k8s.io/redis:e2e
+  image: gcr.io/google_samples/gb-redisslave:v1
   port: 6379
 
