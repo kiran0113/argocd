@@ -10,7 +10,7 @@ spec:
     - host: guestbook.kubeace.com
       http:
         paths:
-          - path: /guestbook
+          - path: /
             pathType: Prefix
             backend:
               service:
