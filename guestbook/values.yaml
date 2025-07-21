@@ -12,10 +12,10 @@ frontend:
     port: 80
 
 redisMaster:
-  image: registry.k8s.io/redis:e2e
+  image: redis:7.2-alpine
   port: 6379
 
 redisReplica:
-  image: gcr.io/google_samples/gb-redisslave:v1
+  image: redis:7.2-alpine
   port: 6379
 
