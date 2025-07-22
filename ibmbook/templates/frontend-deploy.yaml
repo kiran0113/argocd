@@ -17,5 +17,5 @@ spec:
         - name: guestbook
           image: {{ .Values.image.frontend }}
           ports:
-            - containerPort: 3000
+            - containerPort: 80
 
