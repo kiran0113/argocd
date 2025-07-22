@@ -6,7 +6,7 @@ replicaCount:
   redisFollower: 2
 
 image:
-  frontend: gcr.io/google-samples/gb-frontend:v3
+  frontend: gcr.io/google-samples/gb-frontend:v1
   redisLeader: redis
   redisFollower: gcr.io/google_samples/gb-redisslave:v1
 
