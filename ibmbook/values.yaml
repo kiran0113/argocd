@@ -7,8 +7,8 @@ replicaCount:
 
 image:
   frontend: gcr.io/google-samples/gb-frontend:v5
-  redisLeader: redis
-  redisFollower: gcr.io/google_samples/gb-redisslave:v1
+  redisLeader:  redis:7.2-alpine
+  redisFollower: redis:7.2-alpine
 
 service:
   type: LoadBalancer
