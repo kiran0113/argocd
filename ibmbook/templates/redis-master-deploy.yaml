@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-leader
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount.redisLeader }}
+  selector:
+    matchLabels:
+      app: redis
+      role: leader
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: leader
+    spec:
+      containers:
+        - name: redis
+          image: {{ .Values.image.redisLeader }}
+          ports:
+            - containerPort: 6379
+

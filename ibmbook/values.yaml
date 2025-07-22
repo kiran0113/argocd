@@ -1,0 +1,30 @@
+namespace: guestbook
+
+replicaCount:
+  frontend: 3
+  redisLeader: 1
+  redisFollower: 2
+
+image:
+  frontend: gcr.io/google-samples/gb-frontend:v4
+  redisLeader: redis
+  redisFollower: gcr.io/google_samples/gb-redisslave:v1
+
+service:
+  type: LoadBalancer
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - host: ibmbook.kubeace.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - ibmbook.kubeace.com
+      secretName: guestbook-tls
+
